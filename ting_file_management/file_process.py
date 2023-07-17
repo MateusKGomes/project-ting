@@ -1,13 +1,12 @@
-import sys
-
 from ting_file_management.file_management import txt_importer
 from ting_file_management.queue import Queue
+
 
 def process(path_file, instance: Queue):
     content = txt_importer(path_file)
     lines = sum(1 for _ in content)
     for item in instance.data:
-        if item["nome_do_arquivo"] == path_file:
+        if item['nome_do_arquivo'] == path_file:
             return None
 
     file = {
@@ -19,13 +18,13 @@ def process(path_file, instance: Queue):
 
     print(file)
 
+
 def remove(instance: Queue):
-    
     if not instance:
         print("Não há elementos")
     else:
-        instance.dequeue()
-        print(f"Arquivo {instance} removido com sucesso")
+        remove = instance.dequeue()
+        print(f"Arquivo {remove['nome_do_arquivo']} removido com sucesso")
 
 
 def file_metadata(instance, position):
