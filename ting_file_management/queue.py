@@ -18,3 +18,7 @@ class Queue(AbstractQueue):
         if index >= len(self._data) or index < 0:
             raise IndexError('Índice Inválido ou Inexistente')
         return self._data[index]
+    
+    @property
+    def data(self):
+        return self._data
